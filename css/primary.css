@@ -1,0 +1,330 @@
+/*Universal settings*/
+
+/* external css: flickity.css */
+
+html,body{height:100%;
+width:100%;
+background-color:#d9f7d5;
+}
+
+#header{
+	width:100%;
+	height: 10%;
+	text-align:center;
+	float:left;
+	clear:both;
+}
+
+#header h1{
+	padding-bottom:1%;
+	padding-top:1%;
+}
+
+.head_text{
+	padding-top:1%;
+	padding-right:5%;
+}
+
+.row{
+	width:100%;
+}
+
+#nav{
+	width:100%;
+	clear:both;
+	background-color:skyblue;
+	height:6%;
+}
+
+.nav_sec{
+	width:20%;
+	height:100%;
+	text-align:center;
+	float:left;
+	border-right: 1px solid #3792cb;
+	padding-top: 1%;
+	background-color:skyblue;
+}
+
+.nav_sec a{
+	color: black;
+}
+
+#blurb{
+	width:100%;
+	float:left;
+	/*text-align:center;*/
+	height:25%;
+	padding-top:2%;
+	padding-bottom:2%;
+	padding-left: 2%;
+	padding-right: 2%;
+	font-size: 110%;
+}
+
+#intro{
+	width:100%;
+	float:left;
+	height:10%;
+	border-bottom: 1px solid black;
+	padding-left: 2%;
+	font-size: 110%;
+}
+
+#signin{
+	width:50%;
+	height:70%;
+	background-color: green;
+	float:left;
+}
+
+#foot{
+	height:4%;
+	width:100%;
+	clear:both;
+	text-align:center;
+}
+
+/*Carousel Configurations*/
+
+#hp_caro{
+	width:100%;
+	height:50%;
+	clear:both;
+}
+
+#space{
+	height:5%;
+	width:100%;
+	clear:both;
+}
+
+#line_border{
+	size: "1";
+}
+
+.carousel {
+  background: skyblue;
+  box-sizing: border-box;
+  height:100%;
+}
+
+.img_lnk img {
+    height: 50%;
+	box-sizing: border-box;
+  }
+
+
+/* Market Filter Formatting */
+.explain_m{
+	padding-left: 5%;
+}
+
+.thankOrder{
+	display:none;
+}
+
+#filter{
+	width:15%;
+	height:70%;
+	float:left;
+	background-color: skyblue;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+#sell{
+	width:15%;
+	height:70%;
+	float:left;
+	background-color: skyblue;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.scroller{
+	overflow-y: scroll;
+	height: 70%;
+}
+
+#filter h2{
+	text-align: center;
+}
+
+.multiselect {
+  width: 80%;
+  padding-left: 10%;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.checkboxes {
+  display: none;
+  background-color: #d9f7d5;
+}
+
+.checkboxes label {
+  display: block;
+}
+
+.checkboxes label:hover {
+  background-color: #1e90ff;
+}
+
+#purchaseType{
+	padding-left: 20%;
+}
+
+.radios{
+	display: block;
+	position: relative;
+	cursor: pointer;
+	padding-left: 35px;
+	margin-bottom: 12px;
+}
+
+.radios input{
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.checkmark{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+	border-radius: 50%;
+}
+
+.radios:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.radios input:checked ~ .checkmark {
+  background-color: black;
+}
+
+.radios .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+#submit{
+	padding-bottom:5%;
+}
+
+/* Market Place */
+#market{
+	width:85%;
+	height:70%;	
+	float:left;
+	outline: 1px solid black;
+	box-sizing: border-box;
+	overflow-x: hidden;
+}
+
+.anyClass {
+  overflow-y: scroll;
+  max-height: 800px;
+}
+
+.listing{
+	width: 100%;
+	float: left;
+	clear: right;
+	border-bottom: 1px solid black;
+	height:25%;
+}
+
+.img_sec{
+	padding-left: 2%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	float:left;
+	height: 100%;
+	width: 15%;
+	position: relative;
+}
+
+.img_sec img{
+	height: 150px;
+	width: 150px;
+	float: left;
+}
+
+
+.img_sec p{
+	position: relative;
+	text-align: center;
+}
+
+.listing_desc{
+	height: 100%;
+	width: 75%;
+	float: left;
+	padding-left:2%;
+}
+
+.orderbutton {
+	padding-top:5%;
+}
+
+.confirmOrder{
+	padding-top:5%;
+	display:none;
+}
+
+.orderContact{
+	display:none;
+}
+
+.rent{
+	display:none;
+}
+
+.buy{
+	display:none;
+}
+
+.conf_butt{
+	display:none;
+}
+
+.confirmation{
+	display:none;
+}
+
+.confirm{
+	display:none;
+}
+
+.conf_email{
+	display:none;
+}
+
+/*Account page*/
+.register_form{
+	display:none;
+}
