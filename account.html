@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="en"> 
+
+	<head>
+		<!--[if lte IE 9]><script src="http://css3-mediaqueries-<scriptsrc=  http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+		<meta charset="UTF-8">
+		
+		<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+		<link href = "css/primary.css" rel = "stylesheet"/>
+		<link href = "css/primary2.css" rel = "stylesheet"/>
+
+		<script type="text/javascript" src="Wojtekjs.js"></script>
+		<script type="text/javascript" src="flick.js"></script>
+		
+		<title>W&amp;G's Clothes Market</title>
+	</head>
+
+
+
+
+	<body>
+
+		<div class="container-fluid">	
+		
+			<div id="header">
+				<h2> <b>W&amp;G's Market - Account</b> </h2>
+			</div>
+		
+
+		<div class="container-fluid">
+
+			<div class = "row">
+
+		
+				<div class="nav_sec">
+				<a href="index.html"><p><b>Home</b></p></a>
+			</div>
+			
+			<div class="nav_sec">
+				<a href="market.html"><p><b>Market</b></p><a/>
+			</div>
+			
+			<div class="nav_sec">
+				<a href="account.html"><p><b>Account</b></p></a>
+			</div>
+			
+			<div class="nav_sec">
+				<a href="advice.html"><p><b>Advice</b></p></a>
+			</div>
+			
+			<div class="nav_sec">
+				<a href="contact.html"><p><b>Contact Us</b></p></a>
+			</div>
+		
+
+			</div>
+				
+			
+					
+
+
+<div class="container-fluid">
+					
+				<br>
+
+				<div class = "row">
+		
+				<div class="col-md-12"> 
+
+						<div class="container signin">
+    						<p>Please <a href="#">sign in </a>  or <a href="#">register</a>.</p>
+  						</div>
+
+				</div>
+					
+				</div>	
+					<br>		
+	
+			<div class = "row">
+
+			
+				<div class="col-md-6">
+
+<!-- registration code from https://www.w3schools.com/howto/howto_css_register_form.asp -->
+
+				
+
+					<form id="sign_in_form">
+						<!--section 1: sing in, will show if you click on "SIGN IN" option on the wide grey bar -->
+  						<div>
+    						<h4>Sign in </h4>
+    						<p>Your account information will be displayed.<!--Wojtek: check section 3--></p>
+    							<hr>
+
+    						<label for="username"><b>Username</b></label>
+    						<input type="text" placeholder="Enter username" name="username" id="username" required>
+    						
+    						<label for="psw"><b>Password</b></label>
+    						<input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+
+    						<span class="psw"><a href="#">Forgot password?</a></span> <!--can be removed-->
+    						
+    						<button type="submit" class="Signin">Sign in</button>
+  						</div>
+					</form>
+					
+					<form id="register_form">
+  						<div>
+    						<h4>Register</h4>
+    						<p>Please fill in this form to create an account.</p>
+    							<hr>
+
+    						<label for="username"><b>Username</b></label>
+    						<input type="text" placeholder="Enter username" name="username" id="regname" required>
+
+    						<label for="email"><b>Email</b></label>
+    						<input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+    						<label for="psw"><b>Password</b></label>
+    						<input type="password" placeholder="Enter Password" name="psw" id="regpsw" required>
+
+    						<label for="psw-repeat"><b>Repeat Password</b></label>
+    						<input type="password" placeholder="Repeat Password" name="psw-repeat" id="regpsw2" required>
+    							<hr>
+							
+    						<p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p> <!--this section can be removed, I may copy/create T&Cs, time allowed-->
+    						<button type="submit" class="registerbtn" id="reg_acc" onclick="saveDetails()">Register</button>
+  						</div>
+					</form>
+
+				</div>
+
+				<div class="col-md-6">
+					<form >
+  						<div>
+    						<h4>Register</h4>
+    						<p>Please fill in this form to create an account.</p>
+    							<hr>
+
+    						<label for="username"><b>Username</b></label>
+    						<input type="text" placeholder="Enter username" name="username" id="regname" required>
+
+    						<label for="email"><b>Email</b></label>
+    						<input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+    						<label for="psw"><b>Password</b></label>
+    						<input type="password" placeholder="Enter Password" name="psw" id="regpsw" required>
+
+    						<label for="psw-repeat"><b>Repeat Password</b></label>
+    						<input type="password" placeholder="Repeat Password" name="psw-repeat" id="regpsw2" required>
+    							<hr>
+							
+    						<p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p> <!--this section can be removed, I may copy/create T&Cs, time allowed-->
+    						<button type="submit" class="registerbtn" id="reg_acc" onclick="saveDetails()">Register</button>
+  						</div>
+					</form>
+		
+
+				</div>
+		
+
+
+			</div><br>
+
+			</div>
+		</div>
+		</div>
+		</div>
+		
+	</body>
+
+</html>
