@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+
+<html lang="en"> 
+
+	<head>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	
+		<!-- CSS Links -->
+			<!-- External css -->
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+			<!-- Internal css -->	
+				<link href = "css/primary.css" rel = "stylesheet"/>
+				<link href = "css/market.css" rel = "stylesheet"/>
+		
+		<!--Scripts-->
+		
+			<!-- External Scripts -->
+				<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+				<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+			
+			<!-- Internal Scripts -->
+				<script type="text/javascript" src="js/flick.js"></script>
+	
+		
+		<title>W&amp;G's Clothes Market</title>
+	</head>
+
+	<body>
+	<div class=".container-fluid">
+	
+		<div class="row" id="header">
+			<div class="col-lg-1 head_img">
+				<a href="index.html"><img src="img/logo.jpg" alt="W&G Logo" /></a>
+			</div>
+			<div class="col-lg-11 head_text">
+				<h1><b> W&amp;G's Market - Homepage </b></h1>
+			</div>
+		</div>
+		
+		<div class="row" id="nav">
+			<div class="nav_sec">
+				<a href="index.html"><p><b>Home</b></p></a>
+			</div>
+			
+			<div class="nav_sec">
+				<a href="market.html"><p><b>Market</b></p><a/>
+			</div>
+			
+			<div class="nav_sec">
+				<a href="account.html"><p><b>Account</b></p></a>
+			</div>
+			
+			<div class="nav_sec">
+				<a href="advice.html"><p><b>Advice</b></p></a>
+			</div>
+			
+			<div class="nav_sec">
+				<a href="contact.html"><p><b>Contact Us</b></p></a>
+			</div>
+		</div>
+	
+	<!--Explain the market at it's rules-->
+		<div class="row" id="intro">
+			<p>Welcome to the maretplace! As you an see there's a handy filter on the left hand side of the page, use this to streamline the number of listings you see to suit your needs. Now, we like to protect both our customers and our sellers, so we have a couple of rules that you have to follow. The number 1 rule is <b>TREAT EACHOTHER WITH RESPECT</b>, this is a friendly community. For the renters; first you must pay the deposit and rent total upfront, which will be held in eskrow, this is non-negotiable, secondly, you must wash with a laundry service and provide proof, third, return the rented items in the condition that you received them. Sellers; firstly, no scamming (obviously), second, photos must be provided and timestamped just before sending clothes as proof of condition, thirdly, no "private" clothing/accessories may be sold here (e.g. underwear), there's other websites for that kind of thing, finally, you cannot sell items as a method of sending another, e.g. if you sell a tshirt but actually use it to ship a tshirt and another, non fashion item, is not allowed.</p>
+		</div>
+	
+	<!--Bootstrap column on left of screen to contain the market filter-->
+		<div class="row">
+		<div class="col-lg-4" id="filter">
+			<br>
+			
+			<!--Market Filters-->
+			<!--Radio buttons based on w3 code https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_radio-->
+			<!--Dropdown checkboxes based on-->
+			<p class="explain_m filters" id="mf_exp">Choose from the options below, this will filter the marketplace to help you find what you're looking for!</p>
+			<br>
+			<form class="filters">
+				<div class="multiselect">
+					<div class="selectBox" onclick="showBodyboxes()">
+					<select>
+						<option>Body Type</option>
+					</select>
+					<div class="overSelect"></div>
+					</div>
+					<div id="body" class="checkboxes">
+					<label for="male">
+						<input type="checkbox" id="male" value="male" checked/>Male</label>
+					<label for="female">
+						<input type="checkbox" id="female" value="female" checked/>Female</label>
+					<label for="child">
+						<input type="checkbox" id="child" value="child" checked/>Children</label>
+					</div>
+				</div>
+			</form>
+			<br class="filters">
+			<form class="filters">
+				<div class="multiselect">
+					<div class="selectBox" onclick="showOutfitboxes()">
+					<select>
+						<option>Clothing Type</option>
+					</select>
+					<div class="overSelect"></div>
+					</div>
+					<div id="clothing" class="checkboxes">
+					<label for="costumes">
+						<input type="checkbox" id="costumes" value="costume" checked/>Costumes</label>
+					<label for="uniform">
+						<input type="checkbox" id="uniform" value="uniform" checked/>Uniform</label>
+					<label for="formal">
+						<input type="checkbox" id="formal" value="formal" checked/>Formal</label>
+					<label for="sports">
+						<input type="checkbox" id="sports" value="sports" checked/>Sports</label>
+					<label for="accessories">
+						<input type="checkbox" id="accessories" value="accessories" checked/>Accessories</label>
+					</div>
+				</div>
+			</form>
+			<br>
+			<form class="filters" id="purchaseType">
+				<label class="radios">All
+					<input type="radio" checked="checked" name="radio" value="both" class="purch_type">
+					<span class="checkmark"></span>
+				</label>
+				<label class="radios">Rent
+					<input type="radio" name="radio" value="rent" class="purch_type">
+					<span class="checkmark"></span>
+				</label>
+				<label class="radios">Buy
+					<input type="radio" name="radio" value="buy" class="purch_type">
+					<span class="checkmark"></span>
+				</label>
+			</form>
+			
+			<!-- Order Confirmation (hidden)-->
+			<div class="multiselect confirm">
+			<p>Please complete the below requirements to confirm your order. After clickig confirm, you can acess the filter again and the seller will be in contact asap (the listing won't be taken down until the seller officially confirms the purchase with you.</p>
+				<label class="conf_email" for="email"><b>Contact Email</b></label>
+						<input class="conf_email" type="email" placeholder="Enter your email" name="email" id="email">
+				</label>
+				
+				<input type="submit" value="Confirm Order" id="final_conf">
+				<br>
+				<br>
+			</div>
+			<!--Seller Submission-->
+			<p class="explain_m">If you want to sell any items, please fill in the below details. Our team will review your submission and get back to you asap!</p>
+			<form class="sell_submit">
+				<div class="multiselect">
+					<label for="itemName"><b>Item Name</b></label>
+						<input type="text" placeholder="Enter item name" name="itemName" id="itemName" required aria-required ="true">
+					
+					<label for="email"><b>Contact Email</b></label>
+						<input type="email" placeholder="Enter your email" name="email" id="email">
+						
+					<label for="filename"><b>Item Image(.png/.jpg/.jpeg)</b></label>
+						<input type="file" id="myFile" name="filename">
+					
+					<label for="itemDesc"><b>Item Description</b></label>
+						<textarea id="itemDesc" name="itemDesc">Please describe the item you want to list, including prices.</textarea>
+				</div>
+			</form>
+			
+				<div class="multiselect sell_submit">
+					<label for="sellrent">
+						<input type="radio" id="sellrent" name="vend"/>Sell/Rent</label>
+					<label for="sell">
+						<input type="radio" id="sell" name="vend"/>Sell</label>
+					<label for="rent">
+						<input type="radio" id="rent" name="vend"/>Rent</label>
+				</div>
+				<div class="multiselect sell_submit" id="submit">
+					<input type="submit" value="Submit Listing" id="sell_sub">
+				</div>
+		</div>
+		
+	<!-- Market Listings Screen Build-->
+	<!--Scrollable bootstrap div built from bootstrap docs https://getbootstrap.com/docs/4.4/utilities/overflow/-->
+	<!--Image links (all in one place for brevity
+	
+	handbag - https://www.pexels.com/photo/trendy-handbag-with-sunglasses-on-knitwear-3808229/
+	
+	snowboots - https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.needpix.com%2Fphoto%2Fdownload%2F319704%2Ftouring-skis-ski-boots-ski-skiing-dynafit-backcountry-skiiing-winter-sports-winter-snow&psig=AOvVaw0vfbWsVJ976Iwnaw-3yxb9&ust=1608534689883000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjPk-6A3O0CFQAAAAAdAAAAABAD
+	
+	tux - https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.needpix.com%2Fphoto%2Fdownload%2F311068%2Fson-in-law-cufflinks-black-and-white-bow-tie-tuxedo-suit-free-pictures-free-photos-free-images&psig=AOvVaw233iD6e0WDOiq9Ps_vyB4H&ust=1608535190723000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIi40NiC3O0CFQAAAAAdAAAAABAV
+	
+	paintball helmet - https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFile%3APB_Mask.jpg&psig=AOvVaw19Flc6ODuAMNefs0iw3a7k&ust=1608535028335000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJDeop-D3O0CFQAAAAAdAAAAABAD
+	
+	-->
+		<div class="container-fluid"> 
+		
+		<!-- Div containing all listings-->
+		<div class="anyClass both" id="market">
+			<div class="row listing L1">
+				<div class="col-sm-1 img_sec .d-none .d-lg-block">
+					<img src="img/market/fcostume.jpg" alt="Female Tribal Costume" />
+				</div>
+				<div class="col-sm-6 listing_desc">
+					<h3>Rent: Female Tribal Costume</h3>
+						<p> <b>Description:</b> </p>
+						<p>Fun tribes person costume for women to stun at any party that you attend! You pay the security deposit and the full predicted rented total, I will send the costume, you will clean it and return it, provided that the costume is returned in a good enough condition we will then return your security deposit.</p>
+						
+						<p><b> Daily Price:</b> &euro;10 || <b> Deposit:</b> &euro;30</p>
+				</div>
+				<div class="col-sm-1 orderbutton">
+					 <button class="submitOrder" id="sub1" value="order1" type="button">Order</button>
+					 
+					 <label class="orderContact" id="orderContact1" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" id="orderContactb1" type="text" placeholder="Enter your email" name="email">
+					 <button class="conf_butt" id="confirmOrder1" type="button">Confirm Order</button>
+					 
+					 <p class="confirmation" id="confirmation1">Order Confirmed</p>
+				</div>
+			</div>
+			
+			<div class="row listing L2">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/highvis.jpg" alt="High Vis Vest" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy/Rent: Unisex High-Vis Vest</h3>
+						<p> <b>Description:</b> </p>
+						<p>Up to 20 high-vis vests. Suitable for all health and safety requirements. Upon ordering, we will contact you to request how many high vis that you want to rent. You will pay the daily rate per high-vis vest rented along with the deposit. You can purchase upfront for the stated price or you can purchase during the rent period and reduce the price by the paid rent.</p>
+						
+						<p><b> Daily Price:</b> &euro;5 || <b> Deposit:</b> &euro;50 || <b>Price: </b> &euro;8</p>
+				</div>
+
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" value="order2" type="button">Order</button>
+					 
+					 <label class="orderContact" id="orderContact2" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" id="orderContactb2" type="text" placeholder="Enter your email" name="email">
+					 <button class="conf_butt" id="confirmOrder2" type="button">Confirm Order</button>
+					 
+					 <p class="confirmation" id="confirmation2">Order Confirmed</p>
+				</div>
+			</div>
+			
+			<div class="row listing L3">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/handbag.jpg" alt="Handbag" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Rent: Handbag</h3>
+						<p> <b>Description:</b> </p>
+						<p>Beautiful designer handbag that will wow your friends and family, suitable for any occasion. You pay the deposit and rented period up front, I will return the deposit provided that the bag is in good condition.</p>
+						
+						<p><b> Daily Price:</b> &euro;10 || <b> Deposit:</b> &euro;30</p>
+				</div>
+				
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" value="order3" type="button">Order</button>
+					 
+					 <label class="orderContact" id="orderContact3" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" id="orderContactb3" type="text" placeholder="Enter your email" name="email">
+					 <button class="conf_butt" id="confirmOrder3" type="button">Confirm Order</button>
+					 
+					 <p class="confirmation" id="confirmation3">Order Confirmed</p>					 
+				</div>
+			</div>
+			
+			<div class="row listing L4">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/jewelset.jpg" alt="Gold Jewellery Set" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy: Gold Jewellery Set</h3>
+						<p> <b>Description:</b> </p>
+						<p>Buy this lovely three piece set of gold jewellery. Retails for &euro;200, worn once and looked stunning.</p>
+						
+						<p><b> Price:</b> &euro;100</p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" value="order4" type="button">Order</button>
+					 
+					 <label class="orderContact" id="orderContact4" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" id="orderContactb4" type="text" placeholder="Enter your email" name="email">
+					 <button class="conf_butt" id="confirmOrder4" type="button">Confirm Order</button>
+					 
+					 <p class="confirmation" id="confirmation4">Order Confirmed</p>
+				</div>
+			</div>
+			
+			<div class="row listing L5">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/mcostume.jpg" alt="Male Shaman Costume" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy/Rent: Male Urban Shaman Costume</h3>
+						<p> <b>Description:</b> </p>
+						<p>Be an urban shaman at parties and festivals! This is a fantastic costume that always delivers the wow factor!</p>
+						
+						<p><b> Daily Price:</b> &euro;12.50 || <b>Deposit:</b> &euro;30 || <b>Price: &euro;50</b></p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" value="order5" type="button">Order</button>
+					 
+					 <label class="orderContact" id="orderContact5" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" id="orderContactb5" type="text" placeholder="Enter your email" name="email">
+					 <button class="conf_butt" id="confirmOrder5" type="button">Confirm Order</button>
+					 
+					 <p class="confirmation" id="confirmation5">Order Confirmed</p>
+				</div>
+			</div>
+			
+			<div class="row listing L6">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/schooluniform.jpeg" alt="School Uniform Collection" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy: Blue School Uniform</h3>
+						<p> <b>Description:</b> </p>
+						<p>Buy boys and girls uniform sets, along with crests for some available schools (we will ask after you put in your order).</p>
+						
+						<p><b>Price:</b> &euro;30</p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" value="order6" type="button">Order</button>
+					 
+					 <label class="orderContact" id="orderContact6" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" id="orderContactb6" type="text" placeholder="Enter your email" name="email">
+					 <button class="conf_butt" id="confirmOrder6" type="button">Confirm Order</button>
+					 
+					 <p class="confirmation" id="confirmation6">Order Confirmed</p>
+				</div>
+			</div>
+			
+			<div class="row listing L7">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/snowboots.jpg" alt="Snowboots" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy/Rent: Snowboots</h3>
+						<p> <b>Description:</b> </p>
+						<p>Size 10 men's snowboots, used once by me, essentially in mint condition.</p>
+						
+						<p><b>Daily Price:</b> &euro;15 || <b>Deposit:</b> &euro;80 || <b>Price:</b> &euro;120</p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" value="order7" type="button">Order</button>
+					 
+					 <label class="orderContact" id="orderContact7" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" id="orderContactb7" type="text" placeholder="Enter your email" name="email">
+					 <button class="conf_butt" id="confirmOrder7" type="button">Confirm Order</button>
+					 
+					 <p class="confirmation" id="confirmation7">Order Confirmed</p>
+				</div>
+			</div>
+			
+			<div class="row listing L8">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/tux.jpg" alt="Male Tuxedo" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy: Designer White Tuxedo</h3>
+						<p> <b>Description:</b> </p>
+						<p>White tuxedo with black trim and dickie-bow. In mint condition, never been worn, selling as it is too small.</p>
+						
+						<p><b>Price:</b> &euro;180</p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" value="order8" type="button">Order</button>
+					 
+					 <label class="orderContact" id="orderContact8" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" id="orderContactb8" type="text" placeholder="Enter your email" name="email">
+					 <button class="conf_butt" id="confirmOrder8" type="button">Confirm Order</button>
+					 
+					 <p class="confirmation" id="confirmation8">Order Confirmed</p>
+				</div>
+			</div>
+			
+			<div class="row listing L9">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/weddingdress.jpg" alt="Wedding Dress" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy/Rent: Wedding Dress</h3>
+						<p> <b>Description:</b> </p>
+						<p>A lovely wedding dress to make you feel like a princess on your special day. You can rent the item by paying the deposit and daily rate, you can also purchase the dress and if you have rented it first, we will reduce the price by the amount paid in rent.</p>
+						
+						<p><b> Daily Price:</b> &euro;60 || <b> Deposit:</b> &euro;300 || <b>Price:</b> &euro;400</p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" value="order9" type="button">Order</button>
+					 
+					 <label class="orderContact" id="orderContact9" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" id="orderContactb9" type="text" placeholder="Enter your email" name="email">
+					 <button class="conf_butt" id="confirmOrder9" type="button">Confirm Order</button>
+					 
+					 <p class="confirmation" id="confirmation9">Order Confirmed</p>
+				</div>
+			</div>
+			
+			<div class="row listing L10">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/pbhelmet.jpg" alt="Paintball Helmet" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Rent: Kids Paintball Helmet</h3>
+						<p> <b>Description:</b> </p>
+						<p>Rent a helmet and get out there paintballing!</p>
+						
+						<p><b> Daily Price:</b> &euro;10 || <b> Deposit:</b> &euro;30</p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" value="order10" type="button">Order</button>
+					 
+					 <label class="orderContact" id="orderContact10" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" id="orderContactb10" type="text" placeholder="Enter your email" name="email">
+					 <button class="conf_butt" id="confirmOrder10" type="button">Confirm Order</button>
+					 
+					 <p class="confirmation" id="confirmation10">Order Confirmed</p>				 
+				</div>
+			</div>
+			
+		</div>
+		
+		<!-- All buyable listings-->
+		<div class="anyClass buy" id="market">
+			
+			<div class="row listing L2">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/highvis.jpg" alt="High Vis Vest" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy/Rent: Unisex High-Vis Vest</h3>
+						<p> <b>Description:</b> </p>
+						<p>Up to 20 high-vis vests. Suitable for all health and safety requirements. Upon ordering, we will contact you to request how many high vis that you want to rent. You will pay the daily rate per high-vis vest rented along with the deposit. You can purchase upfront for the stated price or you can purchase during the rent period and reduce the price by the paid rent.</p>
+						
+						<p><b> Daily Price:</b> &euro;5 || <b> Deposit:</b> &euro;50 || <b>Price: </b> &euro;8</p>
+				</div>
+
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" id="order2" type="button">Order</button>
+					 
+					 <label class="orderContact" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" type="text" placeholder="Enter your email" name="email" id="email">
+					 <button class="confirmOrder" type="button">Confirm Order</button>
+				</div>
+			</div>
+			
+			<div class="row listing L4">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/jewelset.jpg" alt="Gold Jewellery Set" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy: Gold Jewellery Set</h3>
+						<p> <b>Description:</b> </p>
+						<p>Buy this lovely three piece set of gold jewellery. Retails for &euro;200, worn once and looked stunning.</p>
+						
+						<p><b> Price:</b> &euro;100</p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" id="order4" type="button">Order</button>
+					 
+					 <label class="orderContact" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" type="text" placeholder="Enter your email" name="email" id="email">
+					 <button class="confirmOrder" type="button">Confirm Order</button>
+				</div>
+			</div>
+			
+			<div class="row listing L5">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/mcostume.jpg" alt="Male Shaman Costume" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy/Rent: Male Urban Shaman Costume</h3>
+						<p> <b>Description:</b> </p>
+						<p>Be an urban shaman at parties and festivals! This is a fantastic costume that always delivers the wow factor!</p>
+						
+						<p><b> Daily Price:</b> &euro;12.50 || <b>Deposit:</b> &euro;30 || <b>Price: &euro;50</b></p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" id="order5" type="button">Order</button>
+					 
+					 <label class="orderContact" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" type="text" placeholder="Enter your email" name="email" id="email">
+					 <button class="confirmOrder" type="button">Confirm Order</button>
+				</div>
+			</div>
+			
+			<div class="row listing child L6">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/schooluniform.jpeg" alt="School Uniform Collection" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy: Blue School Uniform</h3>
+						<p> <b>Description:</b> </p>
+						<p>Buy boys and girls uniform sets, along with crests for some available schools (we will ask after you put in your order).</p>
+						
+						<p><b>Price:</b> &euro;30</p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" type="button">Order</button>
+					 
+					 <label class="orderContact" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" type="text" placeholder="Enter your email" name="email" id="email">
+					<button class="confirmOrder" type="button">Confirm Order</button>
+				</div>
+			</div>
+			
+			<div class="row listing male L7">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/snowboots.jpg" alt="Snowboots" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy/Rent: Snowboots</h3>
+						<p> <b>Description:</b> </p>
+						<p>Size 10 men's snowboots, used once by me, essentially in mint condition.</p>
+						
+						<p><b>Daily Price:</b> &euro;15 || <b>Deposit:</b> &euro;80 || <b>Price:</b> &euro;120</p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" type="button">Order</button>
+					 
+					  <label class="orderContact" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" type="text" placeholder="Enter your email" name="email" id="email">
+					 <button class="confirmOrder" type="button">Confirm Order</button>
+				</div>
+			</div>
+			
+			<div class="row listing L8">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/tux.jpg" alt="Male Tuxedo" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy: Designer White Tuxedo</h3>
+						<p> <b>Description:</b> </p>
+						<p>White tuxedo with black trim and dickie-bow. In mint condition, never been worn, selling as it is too small.</p>
+						
+						<p><b>Price:</b> &euro;180</p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" type="button">Order</button>
+					 
+					  <label class="orderContact" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" type="text" placeholder="Enter your email" name="email" id="email">
+					 <button class="confirmOrder" type="button">Confirm Order</button>
+				</div>
+			</div>
+			
+			<div class="row listing L9">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/weddingdress.jpg" alt="Wedding Dress" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy/Rent: Wedding Dress</h3>
+						<p> <b>Description:</b> </p>
+						<p>A lovely wedding dress to make you feel like a princess on your special day. You can rent the item by paying the deposit and daily rate, you can also purchase the dress and if you have rented it first, we will reduce the price by the amount paid in rent.</p>
+						
+						<p><b> Daily Price:</b> &euro;60 || <b> Deposit:</b> &euro;300 || <b>Price:</b> &euro;400</p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" type="button">Order</button>
+					 
+					  <label class="orderContact" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" type="text" placeholder="Enter your email" name="email" id="email">
+					 <button class="confirmOrder" type="button">Confirm Order</button>
+				</div>
+			</div>
+			
+		</div>
+		
+		<!-- Rent Listings Only-->
+		<div class="anyClass rent" id="market">
+			<div class="row listing L1">
+				<div class="col-sm-1 img_sec .d-none .d-lg-block">
+					<img src="img/market/fcostume.jpg" alt="Female Tribal Costume" />
+				</div>
+				<div class="col-sm-6 listing_desc">
+					<h3>Rent: Female Tribal Costume</h3>
+						<p> <b>Description:</b> </p>
+						<p>Fun tribes person costume for women to stun at any party that you attend! You pay the security deposit and the full predicted rented total, I will send the costume, you will clean it and return it, provided that the costume is returned in a good enough condition we will then return your security deposit.</p>
+						
+						<p><b> Daily Price:</b> &euro;10 || <b> Deposit:</b> &euro;30</p>
+				</div>
+				<div class="col-sm-1 orderbutton">
+					 <button class="submitOrder" id="order1" type="button">Order</button>
+					 
+					 <label class="orderContact" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" type="text" placeholder="Enter your email" name="email" id="email">
+					 <button class="confirmOrder" type="button">Confirm Order</button>
+				</div>
+			</div>
+			
+			<div class="row listing L2">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/highvis.jpg" alt="High Vis Vest" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy/Rent: Unisex High-Vis Vest</h3>
+						<p> <b>Description:</b> </p>
+						<p>Up to 20 high-vis vests. Suitable for all health and safety requirements. Upon ordering, we will contact you to request how many high vis that you want to rent. You will pay the daily rate per high-vis vest rented along with the deposit. You can purchase upfront for the stated price or you can purchase during the rent period and reduce the price by the paid rent.</p>
+						
+						<p><b> Daily Price:</b> &euro;5 || <b> Deposit:</b> &euro;50 || <b>Price: </b> &euro;8</p>
+				</div>
+
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" id="order2" type="button">Order</button>
+					 
+					 <label class="orderContact" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" type="text" placeholder="Enter your email" name="email" id="email">
+					 <button class="confirmOrder" type="button">Confirm Order</button>
+				</div>
+			</div>
+			
+			<div class="row listing L3">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/handbag.jpg" alt="Handbag" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Rent: Handbag</h3>
+						<p> <b>Description:</b> </p>
+						<p>Beautiful designer handbag that will wow your friends and family, suitable for any occasion. You pay the deposit and rented period up front, I will return the deposit provided that the bag is in good condition.</p>
+						
+						<p><b> Daily Price:</b> &euro;10 || <b> Deposit:</b> &euro;30</p>
+				</div>
+				
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" id="order3" type="button">Order</button>
+					 
+					 <label class="orderContact" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" type="text" placeholder="Enter your email" name="email" id="email">
+					 <button class="confirmOrder" type="button">Confirm Order</button>					 
+				</div>
+			</div>
+			
+			<div class="row listing L5">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/mcostume.jpg" alt="Male Shaman Costume" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy/Rent: Male Urban Shaman Costume</h3>
+						<p> <b>Description:</b> </p>
+						<p>Be an urban shaman at parties and festivals! This is a fantastic costume that always delivers the wow factor!</p>
+						
+						<p><b> Daily Price:</b> &euro;12.50 || <b>Deposit:</b> &euro;30 || <b>Price: &euro;50</b></p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" id="order5" type="button">Order</button>
+					 
+					 <label class="orderContact" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" type="text" placeholder="Enter your email" name="email" id="email">
+					 <button class="confirmOrder" type="button">Confirm Order</button>
+				</div>
+			</div>
+			
+			<div class="row listing L7">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/snowboots.jpg" alt="Snowboots" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy/Rent: Snowboots</h3>
+						<p> <b>Description:</b> </p>
+						<p>Size 10 men's snowboots, used once by me, essentially in mint condition.</p>
+						
+						<p><b>Daily Price:</b> &euro;15 || <b>Deposit:</b> &euro;80 || <b>Price:</b> &euro;120</p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" type="button">Order</button>
+					 
+					  <label class="orderContact" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" type="text" placeholder="Enter your email" name="email" id="email">
+					 <button class="confirmOrder" type="button">Confirm Order</button>
+				</div>
+			</div>
+			
+			<div class="row listing L9">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/weddingdress.jpg" alt="Wedding Dress" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Buy/Rent: Wedding Dress</h3>
+						<p> <b>Description:</b> </p>
+						<p>A lovely wedding dress to make you feel like a princess on your special day. You can rent the item by paying the deposit and daily rate, you can also purchase the dress and if you have rented it first, we will reduce the price by the amount paid in rent.</p>
+						
+						<p><b> Daily Price:</b> &euro;60 || <b> Deposit:</b> &euro;300 || <b>Price:</b> &euro;400</p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" type="button">Order</button>
+					 
+					  <label class="orderContact" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" type="text" placeholder="Enter your email" name="email" id="email">
+					 <button class="confirmOrder" type="button">Confirm Order</button>
+				</div>
+			</div>
+			
+			<div class="row listing L10">
+				<div class="col-lg-1 img_sec">
+					<img src="img/market/pbhelmet.jpg" alt="Paintball Helmet" />
+				</div>
+				<div class="col-lg-6 listing_desc">
+					<h3>Rent: Paintball </h3>
+						<p> <b>Description:</b> </p>
+						<p>Rent a helmet and get out there paintballing!</p>
+						
+						<p><b> Daily Price:</b> &euro;10 || <b> Deposit:</b> &euro;30</p>
+				</div>
+				<div class="col-lg-1 orderbutton">
+					 <button class="submitOrder" type="button">Order</button>
+					 
+					  <label class="orderContact" for="email"><b>Contact Email</b></label>
+						<input class="orderContact" type="text" placeholder="Enter your email" name="email" id="email">
+					 <button class="confirmOrder" type="button">Confirm Order</button>					 
+				</div>
+			</div>
+			
+		</div>
+		</div>
+		<div class="row" id="foot">
+			<p>&#169;W&amp;G's Market 2020</p>
+		</div>
+	</div>
+	</body>
+
+</html>
